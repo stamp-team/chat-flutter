@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'talk.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -25,11 +26,17 @@ class _MainPageState extends State<MainPage> {
       Colors.grey[300],
       Colors.white,
     ];
+
+    final List pages = [
+      HomePage(),
+      TalkPage(),
+    ];
+
     return Scaffold(
       appBar: appBarList[_currentIndex],
       backgroundColor: backgroundColor[_currentIndex],
       bottomNavigationBar: bottomNavigation(),
-      body: HomePage(),
+      body: pages[_currentIndex],
     );
   }
 
