@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -7,15 +8,28 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
+  void changepage(int index) {
+    setState(
+      () => _currentIndex = index,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final List appBar=[
-      homeAppBar(context),
-      talkAppBar(),
+    final List appBarList = [
+      homeAppBar(),
+      talkAppBat(),
+    ];
+
+    final List<Color> backgroundColor = [
+      Colors.grey[300],
+      Colors.white,
     ];
     return Scaffold(
-      appBar: appBar[_currentIndex],
+      appBar: appBarList[_currentIndex],
+      backgroundColor: backgroundColor[_currentIndex],
+      bottomNavigationBar: bottomNavigation(),
+      body: HomePage(),
     );
   }
 
@@ -23,6 +37,9 @@ class _MainPageState extends State<MainPage> {
     return BottomNavigationBar(
       backgroundColor: Colors.white,
       type: BottomNavigationBarType.fixed,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      currentIndex: _currentIndex,
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
@@ -40,37 +57,52 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-Widget homeAppBar(BuildContext context) {
+Widget homeAppBar() {
   return AppBar(
-    title: const Text("Programmable"),
-    actions: <Widget>[
-      FlatButton(
-        child: const Icon(
-          Icons.add,
-        ),
-        shape: CircleBorder(),
-        onPressed: null, //TODO友達追加画面
+    elevation: 1.0,
+    backgroundColor: Colors.grey[300],
+    title: Text(
+      "Chat",
+      style: TextStyle(
+        color: Color(0xff707070),
+        fontWeight: FontWeight.bold,
       ),
-      FlatButton(
-        child: const Icon(
-          Icons.add,
+    ),
+    actions: <Widget>[
+      IconButton(
+        icon: Icon(
+          Icons.add_circle_outline,
         ),
-        shape: CircleBorder(),
-        onPressed: null, //TODOグループ作成
+        color: Color(0xff707070),
+        onPressed: () {},
+      ),
+      IconButton(
+        icon: Icon(
+          Icons.add_circle_outline,
+        ),
+        color: Color(0xff707070),
+        onPressed: () {},
       ),
     ],
   );
 }
 
-Widget talkAppBar() {
+Widget talkAppBat() {
   return AppBar(
-    title: Text("Talk"),
+    elevation: 1.0,
+    backgroundColor: Colors.white,
+    title: Text(
+      "Talk",
+      style: TextStyle(
+        color: Color(0xff707070),
+        fontWeight: FontWeight.bold,
+      ),
+    ),
     actions: <Widget>[
-      FlatButton(
-        child: Icon(
-          Icons.more_vert,
-        ),
-        onPressed: null, //TODOトークの編集
+      IconButton(
+        icon: Icon(Icons.more_vert),
+        color: Color(0xff707070),
+        onPressed: () {},
       ),
     ],
   );
