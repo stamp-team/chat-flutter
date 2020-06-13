@@ -17,6 +17,7 @@ class _RoomPageState extends State<RoomPage> {
     final TextEditingController _controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
           color: Color(0xff707070),
