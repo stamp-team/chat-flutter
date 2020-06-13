@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
     ];
 
     final List<Color> backgroundColor = [
-      Colors.grey[300],
+      Color(0xffEEEEEE),
       Colors.white,
     ];
 
@@ -67,7 +67,7 @@ class _MainPageState extends State<MainPage> {
 Widget homeAppBar() {
   return AppBar(
     elevation: 1.0,
-    backgroundColor: Colors.grey[300],
+    backgroundColor: Color(0xffEEEEEE),
     title: Text(
       "Chat",
       style: TextStyle(

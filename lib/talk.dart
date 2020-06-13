@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'room.dart';
 
 class TalkPage extends StatelessWidget {
   @override
@@ -51,7 +52,14 @@ Widget room(
   destination,
 ) {
   return FlatButton(
-    onPressed: () {},
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RoomPage(name),
+        ),
+      );
+    },
     child: SizedBox(
       child: Padding(
         padding: const EdgeInsets.all(10),

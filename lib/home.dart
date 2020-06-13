@@ -9,26 +9,25 @@ class HomePage extends StatelessWidget {
           'https://dot.asahi.com/S2000/upload/2019100100055_1.jpg',
           'name',
         ),
-        ConstrainedBox(
+        Container(
           constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height - 180),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              color: Colors.white,
-            ),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 20,
-                ),
-                groups(),
-                Divider(
-                  endIndent: 50,
-                ),
-                friends(),
-              ],
-            ),
+            minHeight: MediaQuery.of(context).size.height - 180,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+            color: Colors.white,
+          ),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 20,
+              ),
+              groups(),
+              Divider(
+                endIndent: 50,
+              ),
+              friends(),
+            ],
           ),
         ),
       ],
@@ -41,7 +40,7 @@ Widget me(
   String name,
 ) {
   return FlatButton(
-    onPressed: (){},
+    onPressed: () {},
     child: Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
@@ -85,7 +84,10 @@ Widget groups() {
         padding: const EdgeInsets.only(left: 20.0),
         child: Text(
           "group",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       SizedBox(
@@ -118,7 +120,10 @@ Widget friends() {
         padding: const EdgeInsets.only(left: 20),
         child: Text(
           "friends",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       SizedBox(
@@ -149,7 +154,7 @@ Widget item(
   destination,
 ) {
   return FlatButton(
-    onPressed: (){},
+    onPressed: () {},
     child: Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
