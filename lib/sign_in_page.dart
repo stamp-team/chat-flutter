@@ -29,9 +29,8 @@ class SignInPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(30),
                 ),
               ),
               child: Column(
@@ -49,7 +48,7 @@ class SignInPage extends StatelessWidget {
                         obscureText: true,
                         controller: passwordTextController,
                       ),
-                      Container(
+                      SizedBox(
                         height: 60,
                       ),
                     ],
