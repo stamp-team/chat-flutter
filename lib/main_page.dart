@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'talk.dart';
+import 'home_page.dart';
+import 'talk_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     final List appBarList = [
       homeAppBar(),
-      talkAppBat(),
+      talkAppBar(),
     ];
 
     final List<Color> backgroundColor = [
@@ -94,7 +94,7 @@ Widget homeAppBar() {
   );
 }
 
-Widget talkAppBat() {
+Widget talkAppBar() {
   return AppBar(
     elevation: 1.0,
     backgroundColor: Colors.white,

@@ -101,48 +101,51 @@ class _MessageListState extends State<MessageList> {
     return Expanded(
       child: ListView(
         children: <Widget>[
-          myMessage(context, "Hi", "6:34", true),
-          friendMessage(context, "Test message Maybe OK.", '6:35'),
-          myMessage(context, "Geneus", "12:24", false)
+          messageItem(true, context, "Hi", "6:34", true),
+          messageItem(false, context, "Test message Maybe OK.", '6:35', true),
+          messageItem(true, context, "Geneus", "12:24", false),
         ],
       ),
     );
   }
 }
 
-Widget myMessage(
+Widget messageItem(
+  bool isMe, //IDとの一致で判定する予定
   BuildContext context,
   String message,
   String time,
   bool isRead,
 ) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: const EdgeInsets.all(5.0),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        Column(
-          children: <Widget>[
-            Text(
-              (isRead) ? "既読" : "",
-              style: TextStyle(fontSize: 10),
-            ),
-            Text(
-              time,
-              style: TextStyle(fontSize: 10),
-            ),
-          ],
-        ),
-        SizedBox(
-          width: 5,
-        ),
+        if (isMe)
+          Column(
+            children: <Widget>[
+              Text(
+                (isRead) ? "既読" : "",
+                style: TextStyle(fontSize: 10),
+              ),
+              Text(
+                time,
+                style: TextStyle(fontSize: 10),
+              ),
+            ],
+          ),
         Container(
-          constraints:
-              BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width / 2,
+          ),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 5,
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.blue,
+            color: isMe?Colors.blue:Color(0xffEEEEEE),
           ),
           padding: const EdgeInsets.all(10),
           child: Text(
@@ -150,50 +153,17 @@ Widget myMessage(
             softWrap: true,
             style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: isMe?Colors.white:Colors.black,
             ),
           ),
         ),
-      ],
-    ),
-  );
-}
-
-Widget friendMessage(
-  BuildContext context,
-  String message,
-  String time,
-) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Container(
-          constraints:
-              BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Color(0xffEEEEEE),
-          ),
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            message,
-            softWrap: true,
+        if (!isMe)
+          Text(
+            time,
             style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
+              fontSize: 10,
             ),
           ),
-        ),
-        SizedBox(
-          width: 5,
-        ),
-        Text(
-          time,
-          style: TextStyle(fontSize: 10),
-        ),
       ],
     ),
   );

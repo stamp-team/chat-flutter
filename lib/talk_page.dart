@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'room.dart';
+import 'room_page.dart';
 
 class TalkPage extends StatelessWidget {
   @override
