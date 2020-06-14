@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'talk_page.dart';
+import 'home_page_app_bar.dart';
+import 'talk_page_app_bar.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -18,8 +20,8 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final List appBarList = [
-      homeAppBar(),
-      talkAppBar(),
+      HomePageAppBar(),
+      TalkPageAppBar(),
     ];
 
     final List<Color> backgroundColor = [
@@ -62,55 +64,4 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
-}
-
-Widget homeAppBar() {
-  return AppBar(
-    elevation: 1.0,
-    backgroundColor: Color(0xffEEEEEE),
-    title: Text(
-      "Chat",
-      style: TextStyle(
-        color: Color(0xff707070),
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-    actions: <Widget>[
-      IconButton(
-        icon: Icon(
-          Icons.add_circle_outline,
-        ),
-        color: Color(0xff707070),
-        onPressed: () {},
-      ),
-      IconButton(
-        icon: Icon(
-          Icons.add_circle_outline,
-        ),
-        color: Color(0xff707070),
-        onPressed: () {},
-      ),
-    ],
-  );
-}
-
-Widget talkAppBar() {
-  return AppBar(
-    elevation: 1.0,
-    backgroundColor: Colors.white,
-    title: Text(
-      "Talk",
-      style: TextStyle(
-        color: Color(0xff707070),
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-    actions: <Widget>[
-      IconButton(
-        icon: Icon(Icons.more_vert),
-        color: Color(0xff707070),
-        onPressed: () {},
-      ),
-    ],
-  );
 }

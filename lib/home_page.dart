@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home_page_list_item.dart';
+import 'home_page_list_tile.dart';
 import 'home_page_tile_group.dart';
+import 'package:chat_flutter/model/user.dart';
+import 'package:chat_flutter/model/group.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,38 +15,38 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     myGroups = [
-      [
-        "https://prtimes.jp/i/24101/70/resize/d24101-70-320114-0.jpg",
-        "Sport",
-        false,
-      ],
-      [
-        "https://prtimes.jp/i/24101/70/resize/d24101-70-320114-0.jpg",
-        "Study",
-        false,
-      ],
-      [
-        "https://prtimes.jp/i/24101/70/resize/d24101-70-320114-0.jpg",
-        "Hobby",
-        false,
-      ],
+      Group(
+        name: "Sport",
+        imgUrl: "https://prtimes.jp/i/24101/70/resize/d24101-70-320114-0.jpg",
+      ),
+      Group(
+        name: "Study",
+        imgUrl: "https://prtimes.jp/i/24101/70/resize/d24101-70-320114-0.jpg",
+      ),
+      Group(
+        name: "Hobby",
+        imgUrl: "https://prtimes.jp/i/24101/70/resize/d24101-70-320114-0.jpg",
+      ),
     ];
-    myFriends=[
-      [
-        "https://pbs.twimg.com/profile_images/581025665727655936/9CnwZZ6j.jpg",
-        "Alex",
-        false,
-      ],
-      [
-        "https://pbs.twimg.com/profile_images/581025665727655936/9CnwZZ6j.jpg",
-        "Brian",
-        false,
-      ],
-      [
-        "https://pbs.twimg.com/profile_images/581025665727655936/9CnwZZ6j.jpg",
-        "Jack",
-        false,
-      ],
+    myFriends = [
+      User(
+        name: "Alex",
+        imgUrl:
+            "https://pbs.twimg.com/profile_images/581025665727655936/9CnwZZ6j.jpg",
+        isMe: false,
+      ),
+      User(
+        name: "Jack",
+        imgUrl:
+            "https://pbs.twimg.com/profile_images/581025665727655936/9CnwZZ6j.jpg",
+        isMe: false,
+      ),
+      User(
+        name: "Brian",
+        imgUrl:
+            "https://pbs.twimg.com/profile_images/581025665727655936/9CnwZZ6j.jpg",
+        isMe: false,
+      ),
     ];
   }
 
@@ -53,9 +55,11 @@ class _HomePageState extends State<HomePage> {
     return ListView(
       children: <Widget>[
         HomePageListTile(
-          'https://dot.asahi.com/S2000/upload/2019100100055_1.jpg',
-          'name',
-          true,
+          User(
+            name: 'name',
+            imgUrl: 'https://dot.asahi.com/S2000/upload/2019100100055_1.jpg',
+            isMe: true,
+          ),
         ),
         Container(
           constraints: BoxConstraints(

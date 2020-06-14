@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page_list_item.dart';
+import 'home_page_list_tile.dart';
 
 class HomePageTileGroup extends StatelessWidget {
   final String title;
@@ -25,12 +25,8 @@ class HomePageTileGroup extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        for (var info in infoList)
-          HomePageListTile(
-            info[0],
-            info[1],
-            info[2],
-          ),
+        //TODO:リストを回してHomePageListTileを作る
+        for(var model in infoList)HomePageListTile(model),
       ],
     );
   }

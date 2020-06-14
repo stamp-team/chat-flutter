@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HomePageListTile extends StatelessWidget {
-  final String image;
-  final String name;
-  final bool isMe;
+  //HomePageListTileが受け取る型がUserとGroupの二つあるのでmodelとしている
+  final model;
   HomePageListTile(
-    this.image,
-    this.name,
-    this.isMe,
+    this.model,
   );
   @override
   Widget build(BuildContext context) {
@@ -16,17 +13,17 @@ class HomePageListTile extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 10,
-          vertical: isMe ? 30 : 10,
+          vertical: model.isMe ? 30 : 10,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: isMe ? 60 : 50,
-              width: isMe ? 60 : 50,
+              height: model.isMe ? 60 : 50,
+              width: model.isMe ? 60 : 50,
               child: CircleAvatar(
                 radius: double.infinity,
-                backgroundImage: NetworkImage(image),
+                backgroundImage: NetworkImage(model.imgUrl),
               ),
             ),
             SizedBox(
@@ -34,9 +31,9 @@ class HomePageListTile extends StatelessWidget {
             ),
             Flexible(
               child: Text(
-                name,
+                model.name,
                 style: TextStyle(
-                  fontSize: isMe ? 30 : 20,
+                  fontSize: model.isMe ? 30 : 20,
                   fontWeight: FontWeight.bold,
                 ),
                 overflow: TextOverflow.ellipsis,

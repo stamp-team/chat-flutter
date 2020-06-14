@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'message_list.dart';
 
 class RoomPage extends StatefulWidget {
   final String name;
@@ -12,6 +13,7 @@ class RoomPage extends StatefulWidget {
 class _RoomPageState extends State<RoomPage> {
   final String name;
   _RoomPageState(this.name);
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
@@ -88,83 +90,4 @@ class _RoomPageState extends State<RoomPage> {
       ),
     );
   }
-}
-
-class MessageList extends StatefulWidget {
-  @override
-  _MessageListState createState() => _MessageListState();
-}
-
-class _MessageListState extends State<MessageList> {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: <Widget>[
-          messageItem(true, context, "Hi", "6:34", true),
-          messageItem(false, context, "Test message Maybe OK.", '6:35', true),
-          messageItem(true, context, "Geneus", "12:24", false),
-        ],
-      ),
-    );
-  }
-}
-
-Widget messageItem(
-  bool isMe, //IDとの一致で判定する予定
-  BuildContext context,
-  String message,
-  String time,
-  bool isRead,
-) {
-  return Padding(
-    padding: const EdgeInsets.all(5.0),
-    child: Row(
-      mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        if (isMe)
-          Column(
-            children: <Widget>[
-              Text(
-                (isRead) ? "既読" : "",
-                style: TextStyle(fontSize: 10),
-              ),
-              Text(
-                time,
-                style: TextStyle(fontSize: 10),
-              ),
-            ],
-          ),
-        Container(
-          constraints: BoxConstraints(
-            maxWidth: MediaQuery.of(context).size.width / 2,
-          ),
-          margin: const EdgeInsets.symmetric(
-            horizontal: 5,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: isMe?Colors.blue:Color(0xffEEEEEE),
-          ),
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            message,
-            softWrap: true,
-            style: TextStyle(
-              fontSize: 20,
-              color: isMe?Colors.white:Colors.black,
-            ),
-          ),
-        ),
-        if (!isMe)
-          Text(
-            time,
-            style: TextStyle(
-              fontSize: 10,
-            ),
-          ),
-      ],
-    ),
-  );
 }
