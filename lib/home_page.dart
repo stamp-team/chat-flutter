@@ -119,25 +119,26 @@ class HomePage extends StatelessWidget {
                           height: 220,
                           child: SingleChildScrollView(
                             child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  ListView.builder(
-                                    physics: ScrollPhysics(),
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    itemCount: snapshot.data.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return HomePageListTile(
-                                        name: snapshot.data[index].name,
-                                        imgUrl: snapshot.data[index].imgUrl,
-                                      );
-                                    },
-                                  ),
-                                ],),
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                ListView.builder(
+                                  physics: ScrollPhysics(),
+                                  scrollDirection: Axis.vertical,
+                                  shrinkWrap: true,
+                                  itemCount: snapshot.data.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return HomePageListTile(
+                                      name: snapshot.data[index].name,
+                                      imgUrl: snapshot.data[index].imgUrl,
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       } else {
