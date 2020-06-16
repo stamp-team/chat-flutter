@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/mainPage',
       routes: {
-        '/mainPage':(context)=>MainPage(),
-        '/signUpPage':(context)=>SignUpPage(),
+        '/mainPage': (context) => MainPage(),
+        '/signUpPage': (context) => SignUpPage(),
       },
     );
   }

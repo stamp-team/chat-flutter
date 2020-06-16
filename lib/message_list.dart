@@ -2,16 +2,41 @@ import 'package:flutter/material.dart';
 import 'message_list_item.dart';
 import 'package:chat_flutter/model/message.dart';
 
-class MessageList extends StatefulWidget {
+class MessageList extends StatelessWidget {
   @override
-  _MessageListState createState() => _MessageListState();
-}
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: FutureBuilder(
+        future: _getMessageList(),
+        builder: (BuildContext context, AsyncSnapshot<List<Message>> snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.data.length != 0) {
+              return ListView.builder(
+                physics: ScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: snapshot.data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return MessageListItem(snapshot.data[index]);
+                },
+              );
+            } else {
+              return Container();
+            }
+          } else if (snapshot.connectionState != ConnectionState.done) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return Container();
+          }
+        },
+      ),
+    );
+  }
 
-class _MessageListState extends State<MessageList> {
-  List<Message> messageList;
-  void initState() {
-    super.initState();
-    messageList = [
+  Future<List<Message>> _getMessageList() async {
+    final List<Message> messageList = [
       Message(
         message: "amusement park!!!",
         sendTime: "23:00",
@@ -31,17 +56,8 @@ class _MessageListState extends State<MessageList> {
         isRead: false,
       ),
     ];
-  }
 
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: <Widget>[
-          //TODO:messageListを回してMessageListItemを作る
-          for(var message in messageList)MessageListItem(message),
-        ],
-      ),
-    );
+    await Future.delayed(Duration(seconds: 1));
+    return await Future.value(messageList);
   }
 }
