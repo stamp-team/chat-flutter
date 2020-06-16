@@ -12,7 +12,10 @@ class _TalkPageState extends State<TalkPage> {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: _getRoomList(),
-      builder: (BuildContext context, AsyncSnapshot<List<Room>> snapshot) {
+      builder: (
+        BuildContext context,
+        AsyncSnapshot<List<Room>> snapshot,
+      ) {
         if (snapshot.hasData) {
           if (snapshot.data.length != 0) {
             return ListView.builder(
@@ -20,7 +23,10 @@ class _TalkPageState extends State<TalkPage> {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context, int index) {
+                itemBuilder: (
+                  BuildContext context,
+                  int index,
+                ) {
                   return TalkPageListTile(snapshot.data[index]);
                 });
           } else {

@@ -18,7 +18,9 @@ class TalkPageAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.more_vert),
+          icon: Icon(
+            Icons.more_vert,
+          ),
           color: Color(0xff707070),
           onPressed: () {},
         ),

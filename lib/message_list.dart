@@ -8,7 +8,10 @@ class MessageList extends StatelessWidget {
     return Expanded(
       child: FutureBuilder(
         future: _getMessageList(),
-        builder: (BuildContext context, AsyncSnapshot<List<Message>> snapshot) {
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<List<Message>> snapshot,
+        ) {
           if (snapshot.hasData) {
             if (snapshot.data.length != 0) {
               return ListView.builder(
@@ -16,7 +19,10 @@ class MessageList extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context, int index) {
+                itemBuilder: (
+                  BuildContext context,
+                  int index,
+                ) {
                   return MessageListItem(snapshot.data[index]);
                 },
               );

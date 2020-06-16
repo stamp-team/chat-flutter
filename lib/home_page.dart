@@ -19,7 +19,9 @@ class HomePage extends StatelessWidget {
               minHeight: MediaQuery.of(context).size.height - 180,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(20),
+              ),
               color: Colors.white,
             ),
             child: Column(
@@ -42,8 +44,10 @@ class HomePage extends StatelessWidget {
                 ),
                 FutureBuilder(
                   future: _getGroupList(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<List<Group>> snapshot) {
+                  builder: (
+                    BuildContext context,
+                    AsyncSnapshot<List<Group>> snapshot,
+                  ) {
                     if (snapshot.hasData) {
                       if (snapshot.data.length != 0) {
                         return Container(
@@ -61,8 +65,10 @@ class HomePage extends StatelessWidget {
                                   scrollDirection: Axis.vertical,
                                   shrinkWrap: true,
                                   itemCount: snapshot.data.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
+                                  itemBuilder: (
+                                    BuildContext context,
+                                    int index,
+                                  ) {
                                     return HomePageListTile(
                                       name: snapshot.data[index].name,
                                       imgUrl: snapshot.data[index].imgUrl,
@@ -80,7 +86,9 @@ class HomePage extends StatelessWidget {
                             top: 10,
                             bottom: 10,
                           ),
-                          child: Text('グループがありません'),
+                          child: Text(
+                            'グループがありません',
+                          ),
                         );
                       }
                     } else if (snapshot.connectionState !=
@@ -110,8 +118,10 @@ class HomePage extends StatelessWidget {
                 ),
                 FutureBuilder(
                   future: _getFriendList(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<List<User>> snapshot) {
+                  builder: (
+                    BuildContext context,
+                    AsyncSnapshot<List<User>> snapshot,
+                  ) {
                     if (snapshot.hasData) {
                       if (snapshot.data.length != 0) {
                         return Container(
@@ -129,8 +139,10 @@ class HomePage extends StatelessWidget {
                                   scrollDirection: Axis.vertical,
                                   shrinkWrap: true,
                                   itemCount: snapshot.data.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
+                                  itemBuilder: (
+                                    BuildContext context,
+                                    int index,
+                                  ) {
                                     return HomePageListTile(
                                       name: snapshot.data[index].name,
                                       imgUrl: snapshot.data[index].imgUrl,
@@ -148,7 +160,9 @@ class HomePage extends StatelessWidget {
                             top: 10,
                             bottom: 10,
                           ),
-                          child: Text('友達がいません'),
+                          child: Text(
+                            '友達がいません',
+                          ),
                         );
                       }
                     } else if (snapshot.connectionState !=

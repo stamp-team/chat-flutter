@@ -20,11 +20,15 @@ class MessageListItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   (message.isRead) ? "既読" : "",
-                  style: TextStyle(fontSize: 10),
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
                 ),
                 Text(
                   message.sendTime,
-                  style: TextStyle(fontSize: 10),
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
                 ),
               ],
             ),

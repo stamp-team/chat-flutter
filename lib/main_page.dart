@@ -51,12 +51,20 @@ class _MainPageState extends State<MainPage> {
       currentIndex: _currentIndex,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text(""),
+          icon: Icon(
+            Icons.home,
+          ),
+          title: Text(
+            "",
+          ),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.message),
-          title: Text(""),
+          icon: Icon(
+            Icons.message,
+          ),
+          title: Text(
+            "",
+          ),
         ),
       ],
       onTap: (index) => setState(

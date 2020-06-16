@@ -34,7 +34,9 @@ class _RoomPageState extends State<RoomPage> {
         actions: <Widget>[
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: Icon(
+              Icons.more_vert,
+            ),
           ),
         ],
       ),
@@ -79,7 +81,9 @@ class _RoomPageState extends State<RoomPage> {
                 onPressed: () {
                   _controller.clear();
                 },
-                icon: Icon(Icons.send),
+                icon: Icon(
+                  Icons.send,
+                ),
               ),
             ],
           ),
