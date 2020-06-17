@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'sign_up_page.dart';
 import 'main_page.dart';
+import 'add_friend_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,10 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/mainPage',
+      initialRoute: '/',
       routes: {
         '/mainPage': (context) => MainPage(),
         '/signUpPage': (context) => SignUpPage(),
+        '/': (context) => AddFriendPage(),
       },
     );
   }
