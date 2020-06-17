@@ -1,3 +1,5 @@
+import 'package:chat_flutter/ui/molecules/profile_page_app_bar.dart';
+import 'package:chat_flutter/ui/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'talk_page.dart';
@@ -22,16 +24,19 @@ class _MainPageState extends State<MainPage> {
     final List appBarList = [
       HomePageAppBar(),
       TalkPageAppBar(),
+      ProfilePageAppBar(),
     ];
 
     final List<Color> backgroundColor = [
       Color(0xffEEEEEE),
+      Colors.white,
       Colors.white,
     ];
 
     final List pages = [
       HomePage(),
       TalkPage(),
+      ProfilePage(),
     ];
 
     return Scaffold(
@@ -61,6 +66,14 @@ class _MainPageState extends State<MainPage> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.message,
+          ),
+          title: Text(
+            "",
+          ),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.person,
           ),
           title: Text(
             "",
