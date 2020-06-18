@@ -1,9 +1,18 @@
+import 'package:chat_flutter/di.dart';
+import 'package:chat_flutter/ui/pages/profile_edit_page.dart';
+import 'package:chat_flutter/ui/pages/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'sign_up_page.dart';
 import 'main_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: providers,
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -20,6 +29,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/mainPage': (context) => MainPage(),
         '/signUpPage': (context) => SignUpPage(),
+        '/profilePage': (context) => ProfilePage(),
+        '/profileEditPage': (context) => ProfileEditPage(),
       },
     );
   }
